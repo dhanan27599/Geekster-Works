@@ -6,14 +6,13 @@ public class Template {
     }
 
     // Best Sort
-    public static void sort(int[] array) {
-
+    public static <T> void sort(T[] array) {
         int n = array.length;
         Random rand = new Random();
 
         for(int i = 0 ; i < n ; i++) {
             int j = rand.nextInt(n);
-            int temp = array[j];
+            T temp = array[j];
             array[j] = array[i];
             array[i] = temp;
         }
