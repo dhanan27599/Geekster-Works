@@ -1,6 +1,8 @@
 import java.util.*;
 import java.io.*;
 public class Template {
+    private static final FastScanner fs = new FastScanner();
+
     public static void main(String[] args) throws IOException {
 
     }
