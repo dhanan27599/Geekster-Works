@@ -184,14 +184,14 @@ public class Graph {
         return false;
     }
 
-    public void getConnectedComponents() {
+    public int getConnectedComponents() {
         HashSet<String> visited = new HashSet<>();
+        int count = 0;
         for (String vertex : graph.keySet()) {
             if (visited.contains(vertex)) {
                 continue;
             }
             TraversePair pair = new TraversePair(vertex, vertex, 0);
-
             String s = "";
             LinkedList<TraversePair> q = new LinkedList<>();
             q.addLast(pair);
@@ -210,7 +210,9 @@ public class Graph {
                 }
             }
             System.out.println(s);
+            count += 1;
         }
+        return count;
     }
 
     public boolean isCycle() {

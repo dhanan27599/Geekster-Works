@@ -31,7 +31,7 @@ public class Client {
 //        graph.printSmallestPath("A", "G");
 //        graph.bfs("A", "G");
 //        graph.dfs("A", "G");
-//        graph.getConnectedComponents();
-        System.out.println(graph.isCycle());
+        System.out.println(graph.getConnectedComponents());
+//        System.out.println(graph.isCycle());
     }
 }
