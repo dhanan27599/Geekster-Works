@@ -54,7 +54,7 @@ public class Matrix_Chain_Multiplication {
             arr[i] = sc.nextInt();
         }
 
-        System.out.println(solveMemoize(arr));
+        System.out.println(solve(arr));
         sc.close();
     }
 
@@ -109,16 +109,20 @@ public class Matrix_Chain_Multiplication {
     }
 
     public static int solve(int[] arr) {
-        int[][] cache = new int[arr.length][arr.length];
-        for(int gap = 1 ; gap < arr.length ; gap++) {
-            for(int i = 1, j = gap + 1 ; j < arr.length ; i++, j++) {
-                if(gap == 1) {
-                    cache[i][j] = 0;
-                } else  {
-
+        int n = arr.length - 1;
+        int[][] cache = new int[n][n];
+        for(int len = 2 ; len <= n ; ++len){
+            for(int i = 0 ; i < n - len + 1 ; i++) {
+                int end = i + len - 1;
+                cache[i][end] = Integer.MAX_VALUE;
+                for(int j = i ; j <= end - 1 ; j++) {
+                    int cost = cache[i][j] + cache[j + 1][end] + arr[i] * arr[j + 1] * arr[end + 1];
+                    if(cost < cache[i][end]) {
+                        cache[i][end] = cost;
+                    }
                 }
             }
         }
-        return cache[1][cache.length - 1];
+        return cache[0][n - 1];
     }
 }
