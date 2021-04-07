@@ -1,5 +1,10 @@
 package Graphs;
 
+import Greedy.Activity_Selection;
+
+import java.util.HashSet;
+import java.util.PriorityQueue;
+
 public class Client {
     public static void main(String[] args) {
         Graph graph = new Graph();
@@ -34,4 +39,34 @@ public class Client {
         System.out.println(graph.getConnectedComponents());
 //        System.out.println(graph.isCycle());
     }
+
+//    public static Graph primsMST(Graph graph) {
+//        PriorityQueue<pair> pq = new PriorityQueue<>();
+//        Graph g = new Graph();
+//        for(String vertices : g.graph.keySet()) {
+//            graph.addVertex(vertices);
+//        }
+//        HashSet<String> visited = new HashSet<>();
+//    }
+
+    static class pair implements Comparable<pair>{
+        String start;
+        int end;
+
+        public pair(String start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        public int compareTo(pair o) {
+            return this.end - o.end;
+        }
+
+        @Override
+        public String toString() {
+            return new StringBuilder("[" + start + ", " + end + "]").toString();
+        }
+    }
+
 }
