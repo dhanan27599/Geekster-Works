@@ -7,66 +7,50 @@ import java.util.PriorityQueue;
 
 public class Client {
     public static void main(String[] args) {
-        Graph graph = new Graph();
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
-        graph.addVertex("D");
-        graph.addVertex("E");
-        graph.addVertex("F");
-        graph.addVertex("G");
-        graph.addEdge("A", "B", 10);
-        graph.addEdge("A", "D", 40);
-        graph.addEdge("C", "B", 10);
-        graph.addEdge("C", "D", 10);
-        graph.addEdge("D", "E", 2);
-        graph.addEdge("E", "F", 3);
-        graph.addEdge("F", "G", 3);
-        graph.addEdge("E", "G", 8);
-//        System.out.println(graph);
-//        graph.removeEdge("D", "E");
-//        System.out.println(graph);
-//        graph.removeVertex("D");
-//        System.out.println(graph);
-//        System.out.println(graph.countVertices());
-//        System.out.println(graph.countEdges());
+        Graph g = new Graph();
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addVertex("C");
+        g.addVertex("D");
+        g.addVertex("E");
+        g.addVertex("F");
+        g.addVertex("G");
 
-//        System.out.println(graph.hasPath("A", "G"));
-//        graph.printPath("A", "G");
-//        graph.printSmallestPath("A", "G");
-//        graph.bfs("A", "G");
-//        graph.dfs("A", "G");
-        System.out.println(graph.getConnectedComponents());
-//        System.out.println(graph.isCycle());
-    }
+        g.addEdge("A", "B", 28);
+        g.addEdge("B", "A", 28);
+        g.addEdge("B", "C", 16);
+        g.addEdge("C", "B", 16);
+        g.addEdge("C", "D", 12);
+        g.addEdge("D", "C", 12);
+        g.addEdge("D", "E", 22);
+        g.addEdge("E", "D", 22);
+        g.addEdge("E", "F", 25);
+        g.addEdge("F", "E", 25);
+        g.addEdge("F", "A", 10);
+        g.addEdge("A", "F", 10);
+        g.addEdge("B", "G", 14);
+        g.addEdge("G", "B", 14);
+        g.addEdge("D", "G", 18);
+        g.addEdge("G", "D", 18);
+        g.addEdge("G", "E", 24);
+        g.addEdge("E", "G", 24);
 
-//    public static Graph primsMST(Graph graph) {
-//        PriorityQueue<pair> pq = new PriorityQueue<>();
-//        Graph g = new Graph();
-//        for(String vertices : g.graph.keySet()) {
-//            graph.addVertex(vertices);
-//        }
-//        HashSet<String> visited = new HashSet<>();
-//    }
+//        System.out.println(g);
 
-    static class pair implements Comparable<pair>{
-        String start;
-        int end;
-
-        public pair(String start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-
-        @Override
-        public int compareTo(pair o) {
-            return this.end - o.end;
-        }
-
-        @Override
-        public String toString() {
-            return new StringBuilder("[" + start + ", " + end + "]").toString();
-        }
+        Graph graph = GraphUtil.prismMst(g);
+        System.out.println(graph.calculateCost("A", new HashSet<>(), 0));
+        //    g.removeEdge("D", "E");
+        //    g.removeVertex("D");
+        //    System.out.println(g.countEdges());
+        //    System.out.println(g.countVertices());
+        // System.out.println(g.hasPath("A", "G"));
+        //   g.printHasPath("A","G");
+        //   g.printSmallestPW("A","G");
+        // g.bfs("A", "G");
+        // System.out.println("`````````````````````````````");
+        // g.dfs("A", "G");
+        // g.gcc();
+        // System.out.println(g.isCyclic());
     }
 
 }
