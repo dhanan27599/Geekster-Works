@@ -35,7 +35,7 @@ public class Client {
 
 //        System.out.println(g);
 
-        Graph graph = GraphUtil.prismMst(g);
+        Graph graph = GraphUtil.prismMst(g, "A");
         System.out.println(graph.calculateCost("A", new HashSet<>(), 0));
         //    g.removeEdge("D", "E");
         //    g.removeVertex("D");

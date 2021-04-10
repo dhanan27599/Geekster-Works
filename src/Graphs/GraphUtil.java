@@ -5,7 +5,7 @@ import util.Pair;
 import java.util.*;
 
 public class GraphUtil {
-    public static Graph prismMst(Graph graph) {
+    public static Graph prismMst(Graph graph, String start) {
 
         PriorityQueue<Pair<String, Pair<String, Integer>>> queue = new PriorityQueue<>(Comparator.comparing((Pair<String, Pair<String, Integer>> p) -> p.getSecond().getSecond()));
         String curr = null;
@@ -16,7 +16,7 @@ public class GraphUtil {
         HashSet<String> visited = new HashSet<>();
         HashSet<Pair<String, Pair<String, Integer>>> isAdded = new HashSet<>();
         //single edge with cost
-        Pair<String, Pair<String, Integer>> minimum = graph.findMinimumEdge("A", new HashSet<>(), null, null);
+        Pair<String, Pair<String, Integer>> minimum = graph.findMinimumEdge(start, new HashSet<>(), null, null);
 
         //added to check if node is visited or not
         visited.add(minimum.getFirst());
