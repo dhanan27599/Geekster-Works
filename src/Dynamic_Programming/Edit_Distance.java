@@ -26,9 +26,9 @@ public class Edit_Distance {
         if(str1.charAt(m - 1) == str2.charAt(n - 1)) {
             return solveRecursive(str1, str2, m - 1, n - 1);
         } else {
-            return Math.min(solveRecursive(str1, str2, m, n - 1),
-                    Math.min(solveRecursive(str1, str2, m - 1, n),
-                            solveRecursive(str1, str2, m - 1, n - 1))) + 1;
+            return Math.min(solveRecursive(str1, str2, m, n - 1),       //* Insert
+                    Math.min(solveRecursive(str1, str2, m - 1, n),      //* Remove
+                            solveRecursive(str1, str2, m - 1, n - 1))) + 1;     //* Replace
         }
     }
 
