@@ -251,13 +251,20 @@ public class Graph {
         }
 
         visited.add(curr);
+        //! Get the Edges
         HashMap<String, Integer> childs = this.graph.get(curr);
+        //! For the Result
         Pair<String, Pair<String, Integer>> result = new Pair<>("null", new Pair<>("null", Integer.MAX_VALUE));
+        //! Traverse Through every edges
         for(Map.Entry<String, Integer> singleChild : childs.entrySet()) {
             Pair<String, Pair<String, Integer>> currentMinimum =  findMinimumEdge(singleChild.getKey(), visited, curr, singleChild.getValue());
+            //! Update if Weight is less
             if(currentMinimum.getSecond().getSecond() < result.getSecond().getSecond()) {
+                //! Vertices
                 result.setFirst(currentMinimum.getFirst());
+                //! Edges
                 result.getSecond().setFirst(currentMinimum.getSecond().getFirst());
+                //! Cost of the edge
                 result.getSecond().setSecond(currentMinimum.getSecond().getSecond());
             }
         }
