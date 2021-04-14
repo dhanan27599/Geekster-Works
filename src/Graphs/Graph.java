@@ -318,10 +318,6 @@ public class Graph {
         return result;
     }
 
-    //! Kruskals Algorithm - Adjacency Matrix
-    public static void kruskals(int[][] edges, int noOfVertices) {
-
-    }
 
     @Override
     public String toString() {
