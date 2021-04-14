@@ -51,18 +51,28 @@ public class Client {
         // g.gcc();
         // System.out.println(g.isCyclic());
 
-        Integer[][] graph = new Integer[6][6];
-        graph[0][1] = 2;
-        graph[0][2] = 3;
-        graph[1][3] = 5;
-        graph[3][5] = 2;
-        graph[2][3] = 1;
-        graph[2][4] = 3;
-        graph[4][5] = 7;
-        Integer[][] res = Edge.kruskal(graph);
-        for(int u = 0 ; u < graph.length ; u++) {
-            for (int v = 0 ; v < graph.length ; v++) {
-                System.out.print(res[u][v] != null ? res[u][v] + " " : "# ");
+//        Integer[][] graph = new Integer[6][6];
+//        graph[0][1] = 2;
+//        graph[0][2] = 3;
+//        graph[1][3] = 5;
+//        graph[3][5] = 2;
+//        graph[2][3] = 1;
+//        graph[2][4] = 3;
+//        graph[4][5] = 7;
+//        Integer[][] res = Edge.kruskal(graph);
+//        for(int u = 0 ; u < graph.length ; u++) {
+//            for (int v = 0 ; v < graph.length ; v++) {
+//                System.out.print(res[u][v] != null ? res[u][v] + " " : "# ");
+//            }
+//            System.out.println();
+//        }
+        int vertex = 5;
+        int[][] edge = { { 0, 9, 75, 0, 0 }, { 9, 0, 95, 19, 42 }, { 75, 95, 0, 51, 66 }, { 0, 19, 51, 0, 31 },
+                { 0, 42, 66, 31, 0 } };
+        Integer[][] result = Graph.prims(edge, vertex);
+        for(int u = 0 ; u < result.length ; u++) {
+            for (int v = 0 ; v < result.length ; v++) {
+                System.out.print(result[u][v] != null ? result[u][v] + " " : "# ");
             }
             System.out.println();
         }

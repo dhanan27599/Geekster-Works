@@ -287,6 +287,41 @@ public class Graph {
         return sum;
     }
 
+    //! Prims Algorithm - Adjacency Matrix
+    public static Integer[][] prims(int[][] edges, int noOfVertices) {
+        Integer[][] result = new Integer[noOfVertices][noOfVertices];
+        int noOfEdges = 0;
+        HashSet<Integer> visited = new HashSet<>();
+        visited.add(0);
+        while(noOfEdges < noOfVertices - 1) {
+            int i = 0;
+            int j = 0;
+            int min = Integer.MAX_VALUE;
+
+            for(int u = 0 ; u < noOfVertices ; u++) {
+                if(visited.contains(u)) {
+                    for (int v = 0; v < noOfVertices; v++) {
+                        if(!visited.contains(v) && edges[u][v] != 0) {
+                            if(edges[u][v] < min) {
+                                min = edges[u][v];
+                                i = u;
+                                j = v;
+                            }
+                        }
+                    }
+                }
+            }
+            result[i][j] = min;
+            visited.add(j);
+            noOfEdges += 1;
+        }
+        return result;
+    }
+
+    //! Kruskals Algorithm - Adjacency Matrix
+    public static void kruskals(int[][] edges, int noOfVertices) {
+
+    }
 
     @Override
     public String toString() {
